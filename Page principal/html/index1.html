@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Hotel - Page Principale</title>
+    <style> 
+        body {
+            background-size: 100% 100%; 
+            background-attachment: fixed;
+            margin: 0; 
+            padding: 0;
+            height: 100vh;
+           }
+            .colored-header {
+                background-color: rgba(126, 107, 90, 0.605);
+                height: 45px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .centered-container {
+                text-align: center;
+            }
+            .titre {
+                background-color: rgba(105, 82, 35, 0.763);
+                display: inline-block;
+                padding: 2px;
+                border-radius: 10px;
+                margin: 20px auto;
+                border-collapse: collapse;
+            }
+            .grid-container {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 10px;
+                margin-top: 5px;
+            }
+            .reserv {
+                background-color: rgb(231, 218, 192);
+                display: inline-block;
+                padding: 5px;
+                border-radius: 10px;
+                margin: 10px auto;
+                /*margin-right: 50px;*/
+            }
+            .resultat {
+                background-color: rgb(231, 218, 192);
+                display: inline-block;
+                padding: 5px;
+                border-radius: 10px;
+                margin: 10px auto;
+             }
+            .tdr {
+                border: 1px solid #000000;
+                padding: 10px;
+                text-align: center;
+            }
+            .tdrr {
+                border: 1px solid #000000;
+                padding: 10px;
+                text-align: center;
+            }
+            .ajou, .supp, .rechercher, .effacer {
+                display: inline-block;
+                padding: 10px 20px;
+                font-weight: bold;
+                color: #fff;
+                text-align: center;
+                text-decoration: none;
+                margin: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+            }
+            .ajou {
+                background-color: #0e6010ee;
+                border: 1px solid #1a8d1cee;
+            }
+            .supp {
+                background-color: #a71c00ee;
+                border: 1px solid #a00404ee;
+            }
+            .rechercher {
+                background-color: #0e6010ee;
+                border: 1px solid #1a8d1cee;
+            }
+            .effacer {
+                background-color: #a71c00ee;
+                border: 1px solid #a00404ee;
+            }
+            .navi {
+                font-size: 25px;
+                margin: 0 20px;
+                color: rgba(219, 214, 209, 0.767);
+                text-decoration: overline;
+            }
+            .navi:hover {
+                color: rgb(255, 255, 255);
+            }
+            input[type="number"] {
+                width: 50px; 
+                padding: 5px; 
+                box-sizing: border-box;
+             }
+             .colored-footer {
+                background-color: rgb(150, 34, 34);
+                height: 20px;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .centered-container {
+                text-align: center;
+            }
+            .textfooter{
+                color: #fff200;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+    </style>
+</head>
+<body style="background-image: url(../img/hotel.jpg); background-size: cover; background-repeat: no-repeat;">
+
+<header class="colored-header">
+    <nav>
+        <a href="../html/index.html" class="navi">Accueil</a>
+        <a href="../html/index1.html" class="navi">Réservation</a>
+    </nav>
+</header>
+<main class="centered-container">
+    <div class="titre">
+        <h1>Booking Hotel</h1>
+        <p>Indiquez vos dates de réservation - Toute annulation doit se faire 48h avant</p>
+    </div>
+
+
+    <div class="grid-container">
+
+    <form onsubmit="return false;">
+        <table class="reserv">
+                <tr>
+                    <td class="tdr"><img src="../img/logo.png" alt="imagelogo" width="45px" height="40px" ></td>
+                    <td class="tdr">Travel°Dream</td>
+                </tr>
+                <tr>
+                    <td class="tdr">Lieu de séjour</td>
+                    <td class="tdr">
+                        <select name="select">
+                            <option value="Paris">Paris</option>
+                            <option value="Cannes">Cannes</option>
+                            <option value="Londres">Londres</option>
+                            <option value="Marseille">Marseille</option>
+                            <option value="New-York">New-York</option>
+                            <option value="LA">LA</option>
+                            <option value="Manchester">Manchester</option>
+                            <option value="Madrid">Madrid</option>
+                            <option value="Barcelone">Barcelone</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdr">Arrivée<input type="date" name="arrivee" /></td>
+                    <td class="tdr">Retour<input type="date" name="retour" /></td>
+                </tr>
+                <tr>
+                    <td class="tdr">Adulte:<input type="text" name="nbradulte" id="nbradulte" placeholder="0" readonly></td>
+                    <td class="tdr">
+                        <button onclick="ajouterad()" class="ajou">Ajouter</button>
+                        <button onclick="supprimerad()" class="supp">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdr">Enfant:<input type="text" name="nbrenfant" id="nbrenfant" placeholder="0" readonly ></td>
+                    <td class="tdr">
+                        <button onclick="ajouteren()" class="ajou">Ajouter</button>
+                        <button onclick="supprimeren()" class="supp">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdr">Chambre:<input type="text" name="nbrchambre" id="nbrchambre" placeholder="0" readonly></td>
+                    <td class="tdr">
+                        <button onclick="ajouterch()" class="ajou">Ajouter</button>
+                        <button onclick="supprimerch()" class="supp">Supprimer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="tdrr" colspan="2">
+                        <button type="button" onclick="rechercher()" class="rechercher" id="rechercher">Rechercher</button>
+                        <button type="button" onclick="effacer()" class="effacer" id="effacer">Effacer</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="checkbox" checked name="xx[]" id="voyagetravail">Je voyage pour le travail</td>
+                </tr>
+            </table>
+        </form>
+
+        <form>
+            <table class="resultat">
+                <tr><td><h2>Confirmation réservation</h2></td></tr>
+                <tr><td>Nombre(s) d'adulte(s)</td></tr>
+                <tr><td><label id="resuladultes">0</label></td></tr>
+                <tr><td>Nombre(s) d'enfant(s)</td></tr>
+                <tr><td><label id="resulenfants">0</label></td></tr>
+                <tr><td>Nombre(s) de chambre(s)</td></tr>
+                <tr><td><label id="resulchambres">0</label></td></tr>
+                <tr><td>Voyage pour le travail</td></tr>
+                <tr><td><label id="resulvoyage">Non</label></td></tr>
+            </table>
+        </form>
+    </div>
+</main>
+<footer class="colored-footer">
+    <label class="textfooter">Indiquez vos dates de réservation - Toute annulation doit se faire avant 48h</label>
+</footer>
+<script type="text/javascript" src="../js/Page_principal.js"></script>
+</body>
+</html>
